@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>pdf gen</title>
+</head>
+<body>
+    <div class="main-container" id="mca">
+        <div class="heading-container">
+            <h1>mca marks summery sheet</h1>
+            <h2>Session july</h2>
+        </div>
+        <div class="table-container">
+            <table>
+                <th>s.no</th>
+                <th>roll no</th>
+                <th>student name</th>
+                <th>max marks</th>
+                <th> marks score</th>
+                <tr>
+                    <td>1</td>
+                    <td>21/fca/mca/057</td>
+                    <td>vivek kumar</td>
+                    <td>100</td>
+                    <td>70</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>21/fca/mca/055</td>
+                    <td>trisha</td>
+                    <td>100</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>21/fca/mca/049</td>
+                    <td>sonal</td>
+                    <td>100</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>21/fca/mca/04</td>
+                    <td>vikas</td>
+                    <td>100</td>
+                    <td>40</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="button-container">
+        <button onclick="generatepdf()">download as pdf</button>
+    </div>
+    <script type="text/javascript">
+        function generatepdf(){
+            var element = document.getElementById('mca');
+var opt = {
+margin:       1,
+filename:     'myfile.pdf',
+image:        { type: 'jpeg', quality: 0.98 },
+html2canvas:  { scale: 2 },
+jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+
+html2pdf().set(opt).from(element).save();
+
+html2pdf(element, opt);
+        }
+    </script>
+</body>
+</html>
